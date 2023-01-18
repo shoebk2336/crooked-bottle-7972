@@ -1,0 +1,10 @@
+.Links_div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.Links{
+    text-decoration: none;
+    color: black;
+}
