@@ -1,22 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import './Pages.css'
-import { Grid, GridItem,Text,Image } from '@chakra-ui/react'
+import { SimpleGrid ,Box,flex, Button } from '@chakra-ui/react'
 
 import {useState,useEffect} from 'react'
 import ProductCard from './ProductCard'
+import Pagination from './Pagination'
+import { Context } from '../Contextapi'
 
 
 
 const Men=()=>{
+
+const {Page,Next,Prev}=useContext(Context)
+console.log(Page)
+
+
 const [Data,setData]=useState([])
 
-console.log(Data)
+//console.log(Data)
 
-const Fetch=()=>{
-    axios.get(`http://localhost:8080/Mens_Clothing`)
+const Fetch=(Page)=>{
+    axios.get(`http://localhost:8080/Mens_Clothing?_limit=16&_page=${Page}`)
   .then(function (response) {
-    
+    console.log(response)
     setData(response.data);
   })
   .catch(function (error) {
@@ -27,9 +35,9 @@ const Fetch=()=>{
 }
 
 useEffect(()=>{
-Fetch()
+Fetch(Page)
 
-},[])
+},[Page])
 
 
 
@@ -39,10 +47,11 @@ Fetch()
         <hr/>
 
         
-        <Grid  templateColumns='repeat(4, 1fr)' gap={0}>
+        <SimpleGrid  columns={[1,2,3,4]} spacing={6}>
 
 {Data?.map((el)=>(
-  <GridItem  key={el.id}  >
+  <Link to={`/men/${el.id}`} key={el.id}>
+  <Box  key={el.id}  >
   <ProductCard
   image={el.Image_url}
   name={el.name}
@@ -54,7 +63,10 @@ Fetch()
   />
   
   
-  </GridItem>
+  </Box>
+  
+  
+  </Link>
 
 ))}
 
@@ -62,7 +74,31 @@ Fetch()
 
   
  
-</Grid>
+</SimpleGrid >
+
+
+
+
+
+<div style={{display:"flex",marginTop:"-250px",justifyContent:"center"}}>
+<div>
+
+<Pagination data='PREV' btn={Prev}/>
+</div>
+
+<Pagination data={Page} />
+
+<div>
+
+<Pagination data='NEXT' btn={Next}/>
+</div>
+
+
+</div>
+
+
+
+
 
 
 
