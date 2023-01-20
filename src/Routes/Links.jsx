@@ -13,7 +13,8 @@ let arr=[
     {to:"/women",element:"WOMEN"},
     {to:"/kids",element:"KIDS"},
     {to:"/indie",element:"INDIE"},
-    {to:"/home&kitchen",element:"HOME AND KITCHEN"}
+    {to:"/home&kitchen",element:"HOME AND KITCHEN"},
+    {to:"/login",element:"Login"}
 ]
 
 
