@@ -9,13 +9,13 @@ import ContextProvider from './Components/Contextapi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ContextProvider>
     <ChakraProvider>
- <BrowserRouter>
+    <ContextProvider>
+    <BrowserRouter>
     <App />
     </BrowserRouter>
-    </ChakraProvider>
     </ContextProvider>
+    </ChakraProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

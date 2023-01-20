@@ -1,15 +1,13 @@
 import { Stack,Box,Text,Button } from "@chakra-ui/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import SingleProductImage from "./SingleproductImage"
-import { FiShoppingCart } from "react-icons/fi";
-import { Context } from '../Contextapi';
-import { useContext } from 'react';
+ import { FiShoppingCart } from "react-icons/fi";
 
 
 const SingleProduct=({type})=>{
-    // const {Add,Red,qty}=useContext(Context)
+    const {Bagdata}=useContext(Context)
 
     const[qty,setqty]=useState(0)
 const [Data,setData]=useState({})
@@ -88,10 +86,10 @@ textDecoration={'line-through'}
 <Box mt={'5'}>
 <Text fontWeight={'500'} >Sizes</Text>
 <Stack mt={"3"} direction={'flex'} gap='3' justifyContent={'center'}>
-<Box onClick={()=>setSize(28)} p={'2'} border={'2px solid grey'} borderRadius={'25'}>28</Box>
-<Box onClick={()=>setSize(30)} p={'2'} border={'2px solid grey'} borderRadius={'25'}>30</Box>
-<Box onClick={()=>setSize(32)} p={'2'} border={'2px solid grey'} borderRadius={'25'}>32</Box>
-<Box onClick={()=>setSize(34)} p={'2'} border={'2px solid grey'} borderRadius={'25'}>34</Box>
+<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>28</Box>
+<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>30</Box>
+<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>32</Box>
+<Box onClick={CartData} name='size' border={'2px solid grey'} borderRadius={'25'}>34</Box>
 
 
 
@@ -117,7 +115,7 @@ textDecoration={'line-through'}
 
 <Box>
 
-<Button gap={'5'} w={'300px'} bg={"gold"} >   ADD TO BAG  <FiShoppingCart/></Button>
+<Button onClick={Bagdata}  gap={'5'} w={'300px'} bg={"gold"} >   ADD TO BAG  <FiShoppingCart/></Button>
 </Box>
 
 
