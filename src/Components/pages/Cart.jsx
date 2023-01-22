@@ -51,13 +51,22 @@ const Coupon=()=>{
 
 }
 const Checkout=()=>{
-//{Auth?alert("Congratulation Your Order Placed Successfully"):alert('Please Login To Proceed')}
-alert("Order Placed Successfully")
-return <Navigate to='/me'/>
+// {Auth?alert("Congratulation Your Order Placed Successfully"):alert('Please Login To Proceed')}
+// alert("Order Placed Successfully")
+if(Auth==true){
+    alert("Congratulation Your Order Placed Successfully")
+    return<Navigate to='/'/>
+}
+else if(Auth==false){
+    alert('Please Login To Proceed')
+    return<Navigate to='/login'/>
+}
 
 }
 
-
+if(Cart.length==0){
+    return<Heading>Please Add Some Products</Heading>
+}
 
 
     return(

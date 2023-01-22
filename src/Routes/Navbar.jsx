@@ -17,7 +17,7 @@ import {
     Image,
     Heading,
     VStack,
-    Link,
+    
    
     
   } from '@chakra-ui/react';
@@ -29,25 +29,22 @@ import {
    
     
   } from '@chakra-ui/icons';
-  import { Navigate,useNavigate} from 'react-router-dom';
+  import { Navigate,useNavigate,Link} from 'react-router-dom';
   import { useContext,useRef } from 'react';
   import { Context } from '../Components/Contextapi';
+  import {  BsFillCartCheckFill } from "react-icons/bs";
+
   
   
   
   
   
   export default function WithSubnavigation() {
-    const ref=useRef()
+    //const ref=useRef()
     const {Auth,setAuth}=useContext(Context)
     const { isOpen, onToggle } = useDisclosure();
    
-   const asdf=()=>{
-    if(ref.current.innerText=="Logout"){
-        setAuth(false)
-        return <Navigate to="/"/>
-    }
-   }
+   
 
   
     return (
@@ -112,13 +109,36 @@ import {
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
+            <Link to='/cart'>
+            <Button 
+              to={"/cart"}
+              display={{ base: 'none', md: 'inline-flex' }}
+              w={"40px"}
+              textAlign={"center"}
+              
+              align={"center"}
+              justifyContent={"center"}
+              margin={"auto"}
+              p={"2.5"}
+              borderRadius={'10'}
+              fontSize={'20'}
+              fontWeight={600}
+              color={'white'}
+              bg={'pink.400'}
+              href={'/cart'}
+              _hover={{
+                bg: 'teal',
+              }}>
+             <BsFillCartCheckFill/>
+            </Button>
+            </Link>
             
-           
-            <Link 
+           <Link to='/login'>
+            <Button 
             
             to={'/login'}
-           ref={ref}
-           onClick={asdf}
+           
+           
             
            
             display={{ base: 'none', md: 'inline-flex' }}
@@ -138,11 +158,12 @@ import {
             _hover={{
               bg: 'pink.300',
             }}>
-            {Auth?"Logout":"Sign In"}
+            {Auth?"Logged":"Sign In"}
+          </Button>
           </Link>
          
-            
-          <Link 
+          <Link to='/admin'>
+          <Button 
             
           to={'/admin'}
          
@@ -167,6 +188,7 @@ import {
             bg: 'teal',
           }}>
           ADMIN
+        </Button>
         </Link>
           </Stack>
         </Flex>
@@ -199,7 +221,7 @@ import {
                     textDecoration: 'none',
                     color: linkHoverColor,
                   }}>
-                  {navItem.label}
+                  {<Text fontWeight={'500'}>{navItem.label}</Text>}
                 </Link>
               </PopoverTrigger>
   
@@ -228,7 +250,7 @@ import {
   const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
     return (
       <Link
-        href={href}
+        to={href}
         role={'group'}
         display={'block'}
         p={2}
@@ -405,24 +427,4 @@ import {
     // },
   ];
 
-  // {<Link 
-  //   to={"/cart"}
-  //   display={{ base: 'none', md: 'inline-flex' }}
-  //   w={"40px"}
-  //   textAlign={"center"}
-    
-  //   align={"center"}
-  //   justifyContent={"center"}
-  //   margin={"auto"}
-  //   p={"2.5"}
-  //   borderRadius={'10'}
-  //   fontSize={'20'}
-  //   fontWeight={600}
-  //   color={'white'}
-  //   bg={'pink.400'}
-  //   href={'/cart'}
-  //   _hover={{
-  //     bg: 'teal',
-  //   }}>
-  //  <BsFillCartCheckFill/>
-  // </Link>}
+  

@@ -2835,6 +2835,15 @@
       "orginal_price": "300000",
       "offer_price": "149999",
       "id": 8147
+    },
+    {
+      "Image_url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80",
+      "brand": "masai",
+      "name": "fullstack",
+      "discount": "(25% off)",
+      "orginal_price": "300000",
+      "offer_price": "250000",
+      "id": 8148
     }
   ],
   "Mens_Footwear": [
@@ -5470,6 +5479,16 @@
       "Email": "shakeeb@gmail.com",
       "Password": "1997",
       "id": 8
+    },
+    {
+      "Email": "masai@gmail.com",
+      "Password": "1057",
+      "id": 9
+    },
+    {
+      "Email": "masai@gmail.com",
+      "Password": "1057",
+      "id": 10
     }
   ]
 }

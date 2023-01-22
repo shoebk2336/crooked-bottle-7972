@@ -70,10 +70,11 @@ let type=''
 
     }
 
-    // if(Auth==false){
-    //     return <Navigate to='/login'/>
+    if(Auth==false){
+        alert("Please Login ")
+        return <Navigate to='/login'/>
 
-    // }
+    }
     
 
 
