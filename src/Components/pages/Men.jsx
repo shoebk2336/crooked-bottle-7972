@@ -43,7 +43,7 @@ Fetch(Page)
 
     return(
       <div>
-        <h1>Men</h1>
+        
         <hr/>
 
         
@@ -80,7 +80,7 @@ Fetch(Page)
 
 
 
-<div style={{display:"flex",marginTop:"-250px",justifyContent:"center"}}>
+<div  style={{display:"flex",marginTop:"-250px",justifyContent:"center"}}>
 <div>
 
 <Pagination data='PREV' btn={Prev}/>
@@ -95,6 +95,7 @@ Fetch(Page)
 
 
 </div>
+
 
 
 

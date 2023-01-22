@@ -1,18 +1,20 @@
 import { Stack,Box,Text,Button } from "@chakra-ui/react"
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Navigate, useParams } from "react-router-dom"
 import SingleProductImage from "./SingleproductImage"
  import { FiShoppingCart } from "react-icons/fi";
+ import { Context } from "../Contextapi"
 
 
 const SingleProduct=({type})=>{
-    const {Bagdata}=useContext(Context)
 
     const[qty,setqty]=useState(0)
+    //const [selectsize,setselectsize]=useState(32)
+   // console.log(selectsize)
 const [Data,setData]=useState({})
-const[Size,setSize]=useState('')
-    console.log(Size)
+const[Size,setSize]=useState(32)
+    
     
 
    //console.log(Data)
@@ -42,9 +44,30 @@ Fetch()
 
 const {Image_url,brand,discount,name,orginal_price,offer_price}=Data
 
+//cartData
+
+const {Cartdata}=useContext(Context)
+
+
+let Cartobj={
+    Image_url,
+    brand,
+    discount,
+    orginal_price,
+    offer_price:+(offer_price),
+    qty:+(qty),
+    Size,
+    id,
+    name,
+   
+
+}
+//onsole.log('price',orginal_price)
+
+
 return <>
 
-<h1>Single Product</h1>
+
 <hr/>
 
 <Stack direction={'row'} spacing={300}>
@@ -86,10 +109,10 @@ textDecoration={'line-through'}
 <Box mt={'5'}>
 <Text fontWeight={'500'} >Sizes</Text>
 <Stack mt={"3"} direction={'flex'} gap='3' justifyContent={'center'}>
-<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>28</Box>
-<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>30</Box>
-<Box onClick={CartData} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>32</Box>
-<Box onClick={CartData} name='size' border={'2px solid grey'} borderRadius={'25'}>34</Box>
+<Box onClick={()=>setSize(28)} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>28</Box>
+<Box onClick={()=>setSize(30)} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>30</Box>
+<Box onClick={()=>setSize(32)} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>32</Box>
+<Box onClick={()=>setSize(34)} p={'2'} name='size' border={'2px solid grey'} borderRadius={'25'}>34</Box>
 
 
 
@@ -115,7 +138,7 @@ textDecoration={'line-through'}
 
 <Box>
 
-<Button onClick={Bagdata}  gap={'5'} w={'300px'} bg={"gold"} >   ADD TO BAG  <FiShoppingCart/></Button>
+<Button onClick={()=>Cartdata(Cartobj)}   gap={'5'} w={'300px'} bg={"gold"} >   ADD TO BAG  <FiShoppingCart/></Button>
 </Box>
 
 

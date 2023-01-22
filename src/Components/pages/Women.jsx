@@ -41,8 +41,7 @@ Fetch(Page)
 
     return(
       <div>
-        <h1>Women</h1>
-        <hr/>
+        
 
         
         <SimpleGrid  columns={[1,2,3,4]} spacing={6}>
