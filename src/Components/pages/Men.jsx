@@ -43,7 +43,7 @@ Fetch(Page)
 
     return(
       <div>
-        <h1>Men</h1>
+        
         <hr/>
 
         

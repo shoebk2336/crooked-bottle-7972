@@ -40,7 +40,7 @@ Fetch(Page)
 
     return(
       <div>
-        <h1>Kids</h1>
+        
         <hr/>
 
         

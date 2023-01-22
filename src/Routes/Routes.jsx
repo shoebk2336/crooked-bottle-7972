@@ -7,6 +7,9 @@ import HomeandKitchen from "../Components/pages/HomeandKitchen";
 import Indie from "../Components/pages/Indie";
 import SingleProduct from '../Components/pages/SingleProduct'
 import Login from "../Components/pages/Login";
+import Cart from "../Components/pages/Cart";
+import Admin from '../Components/pages/Admin'
+
 
 
 
@@ -20,7 +23,9 @@ let Route_arr=[
 {path:"/kids/:id" ,element:<SingleProduct type="Kids_Clothing"/>},
 {path:"/indie" ,element:<Indie/>},
 {path:"/home&kitchen" ,element:<HomeandKitchen/>},
-{path:"/login" ,element:<Login/>}
+{path:"/login" ,element:<Login/>},
+{path:"/cart" ,element:<Cart/>},
+{path:"/admin" ,element:<Admin/>}
 
 
 

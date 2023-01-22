@@ -6,7 +6,7 @@ import {
     AlertTitle,
     AlertDescription,
   } from '@chakra-ui/react'
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 
@@ -53,16 +53,19 @@ const Signintosystem=(signindata,signincred)=>{
 }
 
 
-        //bagData
+        //cartdata
+        const [Cart,setCart]=useState([])
+        console.log(Cart,'contexcart')
 
 
-        const Bagdata=(data)=>{
-            console.log('bag',data)
+        const Cartdata=(data)=>{
+            setCart([...Cart,data])
         }
-        
+
+
        
 
-
+let shoeb='khan'
 
 
 
@@ -72,7 +75,7 @@ const Signintosystem=(signindata,signincred)=>{
 
 
 return(
-<Context.Provider value={{Page,Next,Prev,Signintosystem,Auth,Bagdata}}>
+<Context.Provider value={{Page,Next,Prev,Signintosystem,Auth,Cartdata,Cart,shoeb}}>
 {children}</Context.Provider>
 
 

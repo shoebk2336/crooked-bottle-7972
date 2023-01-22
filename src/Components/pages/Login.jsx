@@ -67,7 +67,7 @@ useEffect(()=>{
 
 
 
-},[handlechange])
+},[])
 
 
 
@@ -110,7 +110,7 @@ const SignHandle=(e)=>{
 
 
 if(Auth){
-    alert('Login succefull')
+    alert('User Login successfull')
     return <Navigate to='/'/>
 }
 
